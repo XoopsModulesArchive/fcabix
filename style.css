@@ -1,0 +1,497 @@
+
+.fcabix-contents-wrapper h1{
+	font-size: 2em;
+	line-height: 2;
+	margin: 0;
+	padding: 0;
+}
+.fcabix-contents-wrapper h2{
+	font-size: 1.5em;
+	line-height: 2;
+	margin: 0;
+	padding: 0;
+}
+#fcabix-jsui{
+	position: relative;
+	font-size: 12px;
+	
+}
+#fcabix-nojsui{
+	font-size: 12px
+}
+#fcabix-jsui .ui-widget-content,
+#fcabix-nojsui .ui-widget-content{
+	position: relative;
+	padding: 3px;
+}
+
+#fcabix-jsui-title,
+#fcabix-nojsui-title{
+	height: 30px;
+	padding: 0 26px;
+	background: url(images/tango/16x16/system-file-manager.png) no-repeat 5px center;
+	line-height: 30px;
+}
+#fcabix-jsui-about{
+	position: absolute;
+	top: 3px;
+	right: 3px;
+	height: 22px;
+	width: 22px;
+	text-indent: -9999px;
+	background: url(images/tango/16x16/help-browser.png) no-repeat center center;
+}
+
+
+/* Path
+------------------------------------------------------------------------------*/
+#fcabix-nojsui-errors{
+	padding-bottom: 3px;
+}
+#fcabix-nojsui-errors div{
+	padding: 1ex;
+}
+#fcabix-nojsui-errors .ui-icon{
+	float: left;
+}
+#fcabix-nojsui-errors-flash{
+	display: none;
+}
+
+/* Path
+------------------------------------------------------------------------------*/
+#fcabix-jsui-path,
+#fcabix-nojsui-path{
+	padding: 3px;
+	height: 16px;
+	overflow: hidden;
+}
+.fcabix-path-node{
+	display: block;
+	float: left;
+	height: 16px;
+	padding: 0 1ex 0 20px;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	font-weight: bold;
+	line-height: 16px;
+}
+.fcabix-path-node-root{
+	background-image: url(images/tango/16x16/user-home.png);
+}
+.fcabix-path-node-folder{
+	background-image: url(images/tango/16x16/folder.png);
+}
+.fcabix-path-node-folder-open{
+	background-image: url(images/tango/16x16/folder-open.png);
+}
+
+/* Buttons
+------------------------------------------------------------------------------*/
+
+#fcabix-jsui-buttons,
+#fcabix-nojsui-buttons{
+	padding: 3px;
+	font-size: 10px;
+}
+.fcabix-button-separator{
+	height: 50px;
+	float: left;
+	margin: 0 3px 0 0;
+	border-left: 1px solid #ccc;
+}
+.fcabix-button{
+	display: block;
+	float: left;
+	margin: 0 3px 0 0;
+	padding: 37px 1ex 1ex;
+	background-position: center 0;
+	background-repeat: no-repeat;
+	line-height: 12px;
+	text-decoration: none;
+}
+.fcabix-button-download{
+	background-image: url(images/tango/32x32/text-x-generic-down.png);
+}
+.fcabix-button-upload{
+	background-image: url(images/tango/32x32/text-x-generic-up.png);
+}
+.fcabix-button-deletefile{
+	background-image: url(images/tango/32x32/user-trash.png);
+}
+.fcabix-button-fileproperty{
+	background-image: url(images/tango/32x32/text-x-generic-pref.png);
+}
+.fcabix-button-makedir{
+	background-image: url(images/tango/32x32/folder-new.png);
+}
+.fcabix-button-dirproperty{
+	background-image: url(images/tango/32x32/folder-pref.png);
+}
+.fcabix-button-label{
+	color: #666;
+}
+
+
+/* Treeview
+------------------------------------------------------------------------------*/
+
+#fcabix-treeview{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 24%;
+	background-color: #fff;
+}
+#fcabix-treeview-inner{
+	overflow: auto;
+	height: 100%;
+	border: 1px solid #dcdcdc;
+}
+#fcabix-jsui #fcabix-treeview li{
+	list-style-type: none;
+	padding: 3px 0 2px 16px;
+}
+#fcabix-treeview .folder{
+	overflow: hidden;
+	height: 16px;
+	padding: 1px 0 1px 18px;
+	background:transparent url(images/tango/16x16/folder.png) no-repeat 0 0;
+	font-size: 11px;
+	line-height: 16px;
+	cursor: pointer;
+}
+#fcabix-treeview .fcabix-foldertree-currentfolder{
+	background:transparent url(images/tango/16x16/folder-open.png) no-repeat 0 0;
+	font-weight: bold;
+	cursor: auto;
+}
+#fcabix-treeview .fcabix-foldertree-folder-1{
+	background:transparent url(images/tango/16x16/user-home.png) no-repeat 0 0;
+}
+#fcabix-treeview .ui-resizable-handle ui-resizable-e{
+	width: 3px;
+}
+
+/* Flexigrid & Nojsgrid
+------------------------------------------------------------------------------*/
+
+#fcabix-jsui .flexigrid{
+	width: 75%;
+	float: right;
+}
+#fcabix-jsui .flexigrid table{
+	width: auto;
+}
+#fcabix-jsui .flexigrid table,
+#fcabix-jsui .flexigrid table th,
+#fcabix-jsui .flexigrid table td{
+	margin: 0;
+	padding: 0;
+	font-size: 11px;
+	background: none;
+}
+
+#fcabix-jsui .pReload{
+	background: url(images/tango/16x16/view-refresh.png) no-repeat center center;
+}
+#fcabix-jsui .pFirst{
+	background: url(images/tango/16x16/go-first.png) no-repeat center center;
+}
+#fcabix-jsui .pPrev{
+	background: url(images/tango/16x16/go-previous.png) no-repeat center center;
+}
+#fcabix-jsui .pNext{
+	background: url(images/tango/16x16/go-next.png) no-repeat center center;
+}
+#fcabix-jsui .pLast{
+	background: url(images/tango/16x16/go-last.png) no-repeat center center;
+}
+
+#fcabix-jsui #fcabix-jsui-explorer .fcabix-flexigrid-filename{
+	background-repeat: no-repeat;
+	background-position: 2px center;
+}
+#fcabix-nojsui .fcabix-nojsgrid-filename{
+	background-repeat: no-repeat;
+	background-position: 5px center;
+}
+#fcabix-jsui .fcabix-flexigrid-filename div,
+#fcabix-nojsui .fcabix-nojsgrid-filename{
+	text-indent: 20px;
+}
+#fcabix-nojsui .fcabix-nojsgrid-mimetype-folder{
+	background-image: url(images/tango/16x16/folder.png);
+}
+#fcabix-jsui #fcabix-jsui-explorer .fcabix-flexigrid-mimetype-text,
+#fcabix-nojsui .fcabix-nojsgrid-mimetype-text{
+	background-image: url(images/tango/16x16/text-x-generic.png);
+}
+#fcabix-jsui #fcabix-jsui-explorer .fcabix-flexigrid-mimetype-csv,
+#fcabix-nojsui .fcabix-nojsgrid-mimetype-csv{
+	background-image: url(images/tango/16x16/text-csv.png);
+}
+#fcabix-jsui #fcabix-jsui-explorer .fcabix-flexigrid-mimetype-pdf,
+#fcabix-nojsui .fcabix-nojsgrid-mimetype-pdf{
+	background-image: url(images/tango/16x16/application-pdf.png);
+}
+#fcabix-jsui #fcabix-jsui-explorer .fcabix-flexigrid-mimetype-image,
+#fcabix-nojsui .fcabix-nojsgrid-mimetype-image{
+	background-image: url(images/tango/16x16/image-x-generic.png);
+}
+#fcabix-jsui #fcabix-jsui-explorer .fcabix-flexigrid-mimetype-audio,
+#fcabix-nojsui .fcabix-nojsgrid-mimetype-audio{
+	background-image: url(images/tango/16x16/audio-x-generic.png);
+}
+#fcabix-jsui #fcabix-jsui-explorer .fcabix-flexigrid-mimetype-font,
+#fcabix-nojsui .fcabix-nojsgrid-mimetype-font{
+	background-image: url(images/tango/16x16/font-x-generic.png);
+}
+#fcabix-jsui #fcabix-jsui-explorer .fcabix-flexigrid-mimetype-template,
+#fcabix-nojsui .fcabix-nojsgrid-mimetype-template{
+	background-image: url(images/tango/16x16/text-x-generic-template.png);
+}
+#fcabix-jsui #fcabix-jsui-explorer .fcabix-flexigrid-mimetype-html,
+#fcabix-nojsui .fcabix-nojsgrid-mimetype-html{
+	background-image: url(images/tango/16x16/text-html.png);
+}
+#fcabix-jsui #fcabix-jsui-explorer .fcabix-flexigrid-mimetype-script,
+#fcabix-nojsui .fcabix-nojsgrid-mimetype-script{
+	background-image: url(images/tango/16x16/text-x-script.png);
+}
+#fcabix-jsui #fcabix-jsui-explorer .fcabix-flexigrid-mimetype-executable,
+#fcabix-nojsui .fcabix-nojsgrid-mimetype-executable{
+	background-image: url(images/tango/16x16/application-x-executable.png);
+}
+#fcabix-jsui #fcabix-jsui-explorer .fcabix-flexigrid-mimetype-archive,
+#fcabix-nojsui .fcabix-nojsgrid-mimetype-archive{
+	background-image: url(images/tango/16x16/package-x-generic.png);
+}
+#fcabix-jsui #fcabix-jsui-explorer .fcabix-flexigrid-mimetype-office-doc,
+#fcabix-jsui #fcabix-jsui-explorer .fcabix-flexigrid-mimetype-office-document,
+#fcabix-nojsui .fcabix-nojsgrid-mimetype-office-doc,
+#fcabix-nojsui .fcabix-nojsgrid-mimetype-office-document{
+	background-image: url(images/tango/16x16/x-office-document.png);
+}
+#fcabix-jsui #fcabix-jsui-explorer .fcabix-flexigrid-mimetype-office-spr,
+#fcabix-jsui #fcabix-jsui-explorer .fcabix-flexigrid-mimetype-office-spreadsheet,
+#fcabix-nojsui .fcabix-nojsgrid-mimetype-office-spr,
+#fcabix-nojsui .fcabix-nojsgrid-mimetype-office-spreadsheet{
+	background-image: url(images/tango/16x16/x-office-spreadsheet.png);
+}
+#fcabix-jsui #fcabix-jsui-explorer .fcabix-flexigrid-mimetype-office-pre,
+#fcabix-jsui #fcabix-jsui-explorer .fcabix-flexigrid-mimetype-office-presentation,
+#fcabix-nojsui .fcabix-nojsgrid-mimetype-office-pre,
+#fcabix-nojsui .fcabix-nojsgrid-mimetype-office-presentation{
+	background-image: url(images/tango/16x16/x-office-presentation.png);
+}
+
+#fcabix-nojsui-explorer{
+	border: 1px solid #dcdcdc;
+
+}
+#fcabix-nojsui-explorer table,
+#fcabix-nojsui-explorer table th,
+#fcabix-nojsui-explorer table td{
+	font-weight: normal;
+	font-size: 11px;
+	border-collapse: collapse;
+	border-width: 0;
+	line-height: 24px;
+	padding: 0;
+}
+#fcabix-nojsui-explorer table{
+	width: 100%;
+}
+#fcabix-nojsui-explorer table th{
+	height: 24px;
+	background: url(js/flexigrid/images/fhbg.gif);
+	border-right: 1px solid #dcdcdc;
+}
+#fcabix-nojsui-explorer table td{
+	height: 24px;
+	padding-left: 3px;
+	padding-right: 1em;
+	background-color: #fff;
+	border-right: 1px solid #dcdcdc;
+}
+#fcabix-nojsui-explorer table .fcabix-nojsgrid-lastcol{
+	border-width: 0;
+}
+#fcabix-nojsui-explorer .fcabix-nojsgrid-nofile td{
+	height: 200px;
+	line-height: 200px;
+	text-align: center;
+	
+}
+.fcabix-nojsgrid-button{
+	float: left;
+	height: 16px;
+	width: 19px;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+.fcabix-nojsgrid-button a{
+	display: block;
+	height: 16px;
+	width: 16px;
+	margin-right: 3px;
+	text-indent: -9999px;
+}
+.fcabix-nojsgrid-button-dirproperty,
+.fcabix-nojsgrid-button-fileproperty{
+	background-image: url(images/tango/16x16/preferences-system.png);
+}
+.fcabix-nojsgrid-button-deletedir,
+.fcabix-nojsgrid-button-deletefile{
+	background-image: url(images/tango/16x16/user-trash.png);
+}
+.fcabix-nojsgrid-button-setperm{
+	background-image: url(images/tango/16x16/emblem-readonly.png);
+}
+#fcabix-nojsui-explorer table tfoot td{
+	background: url(js/flexigrid/images/wbg.gif) 0 0;
+	text-align: right;
+	padding: 3px;
+}
+#fcabix-nojsui-explorer form{
+	display: block;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+#fcabix-nojsui-explorer table tfoot button {
+	height: 22px;
+	line-height: 22px;
+}
+
+
+/* Dialogs
+------------------------------------------------------------------------------*/
+
+.fcabix-dialog{
+	font-size: 12px !important;
+}
+
+.ui-dialog-title{
+	text-indent: 24px;
+	background-position: 0 center;
+	background-repeat: no-repeat;
+}
+.fcabix-dialog-makedir .ui-dialog-title{
+	background-image: url(images/tango/16x16/folder-new.png);
+}
+.fcabix-dialog-upload .ui-dialog-title{
+	background-image: url(images/tango/16x16/go-up.png);
+}
+.fcabix-dialog-download .ui-dialog-title{
+	background-image: url(images/tango/16x16/go-down.png);
+}
+.fcabix-dialog-deletefile .ui-dialog-title{
+	background-image: url(images/tango/16x16/user-trash.png);
+}
+.fcabix-dialog-deletedir .ui-dialog-title{
+	background-image: url(images/tango/16x16/user-trash.png);
+}
+.fcabix-dialog-fileproperty .ui-dialog-title{
+	background-image: url(images/tango/16x16/preferences-system.png);
+}
+.fcabix-dialog-dirproperty .ui-dialog-title{
+	background-image: url(images/tango/16x16/preferences-system.png);
+}
+.fcabix-dialog-setperm .ui-dialog-title{
+	background-image: url(images/tango/16x16/emblem-readonly.png);
+}
+#fcabix-dialog-upload-content{
+	position: relative;
+	padding: 20px;
+}
+#fcabix-dialog-upload-content iframe{
+	position: absolute;
+	left: -9999px;
+	border-width: 0;
+	height: 1px;
+	width: 1px;
+}
+.fcabix-dialog-upload table{
+	font-size: 10px;
+	color: #666;
+}
+.fcabix-dialog-upload table,
+.fcabix-dialog-upload table th,
+.fcabix-dialog-upload table td,
+.fcabix-dialog-setperm table,
+.fcabix-dialog-setperm table th,
+.fcabix-dialog-setperm table td{
+	background: none;
+	border-collapse: collapse;
+	border: 1px solid #dcdcdc;
+}
+.fcabix-dialog-upload table,
+.fcabix-dialog-setperm table{
+	margin: 1em 0;
+}
+.fcabix-dialog-upload table th,
+.fcabix-dialog-upload table td,
+.fcabix-dialog-setperm table th,
+.fcabix-dialog-setperm table td{
+	padding: 3px;
+	text-align: left;
+}
+.fcabix-dialog-about .ui-dialog-title{
+	background-image: url(images/tango/16x16/help-browser.png);
+}
+#fcabix-dialog-about-content{
+	padding: 1em;
+}
+.fcabix-dialog-about p{
+	padding-left: 1em;
+	color: #666;
+}
+#fcabix-about-logowm{
+	margin-top: 1em;
+	padding: 70px 0 1ex;
+	background: url(images/fcabix_logo.gif) no-repeat center top;
+	line-height: 12px;
+	font-weight: bold;
+	text-align: center;
+	color: #333;
+}
+#fcabix-about-copy{
+	padding: 1ex 0;
+	text-align: center;
+}
+.fcabix-dialog-about .fcabix-about-h{
+	padding: 1ex 0;
+	font-weight: bold;
+	color: #333;
+}
+
+#fcabix-nojsui-dialog{
+	margin: 20px 20px 40px;
+}
+#fcabix-createfile-contents-wrapper #fcabix-nojsui-dialog,
+#fcabix-createfolder-contents-wrapper #fcabix-nojsui-dialog,
+#fcabix-erasefile-contents-wrapper #fcabix-nojsui-dialog,
+#fcabix-erasefolder-contents-wrapper #fcabix-nojsui-dialog,
+#fcabix-modfile-contents-wrapper #fcabix-nojsui-dialog,
+#fcabix-modfolder-contents-wrapper #fcabix-nojsui-dialog{
+	margin: 60px 20px 80px;
+}
+#fcabix-nojsui-dialog p{
+	padding: 0 0 1ex;
+	font-weight: bold;
+}
+#fcabix-createfile-contents-wrapper #fcabix-nojsui-dialog table,
+#fcabix-createfile-contents-wrapper #fcabix-nojsui-dialog table th,
+#fcabix-createfile-contents-wrapper #fcabix-nojsui-dialog table td{
+	background: none;
+	border-collapse: collapse;
+	border: 1px solid #dcdcdc;
+}
+#fcabix-createfile-contents-wrapper #fcabix-nojsui-dialog table{
+	color: #666;
+}
+#fcabix-createfile-contents-wrapper #fcabix-nojsui-dialog input{
+	margin-bottom: 1ex;
+}

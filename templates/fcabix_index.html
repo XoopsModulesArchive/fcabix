@@ -1,0 +1,157 @@
+<div id="fcabix-index-contents-wrapper" class="fcabix-contents-wrapper">
+	<div>
+
+		<div id="fcabix-jsui" class="ui-widget ui-helper-clearfix ui-helper-reset" style="display: none;<{if $fcabix.config.width}>width: <{$fcabix.config.width}>px;<{/if}>">
+			<div class="ui-widget-header ui-corner-top">
+				<div class="fcabix-jsui-part" id="fcabix-jsui-title"><{$fcabix.langs.main_title}></div>
+			</div>
+			<div class="ui-widget-content ui-corner-bottom ui-helper-clearfix">
+				<div class="fcabix-jsui-part ui-helper-clearfix" id="fcabix-jsui-path"></div>
+				<div class="fcabix-jsui-part ui-helper-clearfix" id="fcabix-jsui-buttons"></div>
+				<div class="fcabix-jsui-part ui-helper-clearfix" id="fcabix-jsui-explorer">
+					<div id="fcabix-treeview" style="display:none;"><div id="fcabix-treeview-inner"><{$fcabix.content.folder_tree}></div></div>
+					<table id="fcabix-flexigrid" style="display:none;"></table>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript"><!--
+		<{include file="file:`$xoops_rootpath`/modules/fcabix/js/fcabix.js"}>
+		//--></script>
+		<{capture assign=fcabix_nojsui}>
+		<div id="fcabix-nojsui" class="ui-widget" style="clear: both;<{if $fcabix.config.width}>width: <{$fcabix.config.width}>px;<{/if}>">
+			<div class="ui-widget-header ui-corner-top">
+				<div class="fcabix-jsui-part" id="fcabix-nojsui-title"><{$fcabix.langs.main_title}> (noscript)</div>
+			</div>
+			<div class="ui-widget-content ui-corner-bottom">
+				<div class="fcabix-nojsui-part" id="fcabix-nojsui-errors">
+					<div class="ui-state-error ui-helper-clearfix" id="fcabix-nojsui-errors-flash">
+						<span class="ui-state-error-text"><span class="ui-icon ui-icon-alert"></span> <{$fcabix.langs.flash_disabled|default:"Flash is disabled"}></span>
+					</div>
+				</div>
+				<div class="fcabix-nojsui-part ui-helper-clearfix" id="fcabix-nojsui-path">
+					<{foreach from=$fcabix.content.path item=folder name=path}>
+					<span class="fcabix-path-node fcabix-path-node-<{if $smarty.foreach.path.first}>root<{elseif $smarty.foreach.path.last}>folder-open<{else}>folder<{/if}>">
+						<span class="fcabix-path-node-label">
+							<a href="index.php?curent_dir=<{$folder.id}>" target="_top"><{$folder.name}></a>
+							<{if !$smarty.foreach.path.last}>&nbsp;&gt;&nbsp;<{/if}>
+						</span>
+					</span>
+					<{/foreach}>
+				</div>
+				<div class="fcabix-nojsui-part ui-helper-clearfix" id="fcabix-nojsui-buttons">
+					<{if $fcabix.config.current_folder.file_writable}>
+					<a class="fcabix-button fcabix-button-upload" href="create_file.php?curent_dir=<{$fcabix.config.current_folder.id}>" target="_top">
+						<span class="fcabix-button-label"><{$fcabix.langs.command_upload}></span>
+					</a>
+					<{/if}>
+					<{if $fcabix.config.current_folder.folder_writable}>
+					<a class="fcabix-button fcabix-button-makedir" href="create_folder.php?curent_dir=<{$fcabix.config.current_folder.id}>" target="_top">
+						<span class="fcabix-button-label"><{$fcabix.langs.command_makedir}></span>
+					</a>
+					<{/if}>
+					<{if $fcabix.config.current_folder.id > 0 && $fcabix.config.modifiable}>
+					<a class="fcabix-button fcabix-button-dirproperty" href="mod_folder.php?curent_dir=<{$fcabix.config.current_folder.id}>">
+						<span class="fcabix-button-label"><{$fcabix.langs.command_dirproperty}></span>
+					</a>
+					<{/if}>
+				</div>
+				<div class="fcabix-nojsui-part" id="fcabix-nojsui-explorer">
+					<form method="post" action="get_file.php">
+					<table>
+						<thead>
+							<tr>
+								<th><{$fcabix.langs.file_name}></th>
+								<th><{$fcabix.langs.updated_at}></th>
+								<th><{$fcabix.langs.updated_by}></th>
+								<th><{$fcabix.langs.size}></th>
+								<th><{$fcabix.langs.dialog_control}></th>
+								<th class="fcabix-nojsgrid-lastcol"><{$fcabix.langs.nojsgrid_select}></th>
+							</tr>
+						</thead>
+						<tbody>
+						<{if count($fcabix.content.folders) == 0 && count($fcabix.content.files) == 0}>
+							<tr class="fcabix-nojsgrid-nofile"><td colspan="6">no file</td></yr>
+						<{else}>
+							<{foreach from=$fcabix.content.folders item=folder}>
+							<tr>
+								<td class="fcabix-nojsgrid-filename fcabix-nojsgrid-mimetype-folder"><a href="index.php?curent_dir=<{$folder.id}>">
+									<span class="fcabix-filetype-folder"><{$folder.name}></span>
+								</a></td>
+								<td><{$folder.updated_at|replace:'-':'/'}></td>
+								<td><a href="<{$xoops_url}>/userinfo.php?uid=<{$folder.updated_by__uid}>"><{$folder.updated_by__uname}></a></td>
+								<td></td>
+								<td>
+									<{if $folder.modifiable}>
+									<div class="fcabix-nojsgrid-button fcabix-nojsgrid-button-dirproperty">
+										<a href="mod_folder.php?curent_dir=<{$folder.id}>" title="<{$fcabix.langs.nojsgrid_rename}>"><{$fcabix.langs.nojsgrid_rename}></a>
+									</div>
+									<{/if}>
+									<{if $folder.erasable}>
+									<div class="fcabix-nojsgrid-button fcabix-nojsgrid-button-deletedir">
+										<a href="erase_folder.php?curent_dir=<{$folder.id}>" title="<{$fcabix.langs.nojsgrid_delete}>"><{$fcabix.langs.nojsgrid_delete}></a>
+									</div>
+									<{/if}>
+									<{if $fcabix.config.perm_settable}>
+									<div class="fcabix-nojsgrid-button fcabix-nojsgrid-button-setperm">
+										<a href="attr_folder.php?curent_dir=<{$fcabix.config.current_folder.id}>" title="<{$fcabix.langs.nojsgrid_setgroupperm}>"><{$fcabix.langs.nojsgrid_setgroupperm}></a>
+									</div>
+									<{/if}>
+								</td>
+								<td class="fcabix-nojsgrid-lastcol"></td>
+							</tr>
+							<{/foreach}>
+							<{foreach from=$fcabix.content.files item=file}>
+							<tr>
+								<td class="fcabix-nojsgrid-filename fcabix-nojsgrid-mimetype-<{$file.type|default:etc}>">
+									<a href="get_file.php?curent_dir=<{$fcabix.config.current_folder.id}>&curent_file=<{$file.id}>">
+										<{$file.name}>
+									</a>
+								</td>
+								<td><{$file.updated_at|replace:'-':'/'}></td>
+								<td><a href="<{$xoops_url}>/userinfo.php?uid=<{$file.updated_by__uid}>"><{$file.updated_by__uname}></a></td>
+								<td><{$file.size_with_unit}></td>
+								<td>
+									<{if $file.modifiable}>
+									<div class="fcabix-nojsgrid-button fcabix-nojsgrid-button-fileproperty">
+										<a href="mod_file.php?curent_dir=<{$fcabix.config.current_folder.id}>&curent_file=<{$file.id}>">
+											<{$fcabix.langs.command_fileproperty}>
+										</a>
+									</div>
+									<{/if}>
+									<{if $file.erasable}>
+									<div class="fcabix-nojsgrid-button fcabix-nojsgrid-button-deletefile">
+										<a href="erase_file.php?curent_dir=<{$fcabix.config.current_folder.id}>&curent_file=<{$file.id}>">
+											<{$fcabix.langs.command_delete}>
+										</a>
+									</div>
+									<{/if}>
+								</td>
+								<td class="fcabix-nojsgrid-lastcol">
+									<input type="checkbox" class="ui-state-default ui-corner-all" name="curent_file[]" value="<{$file.id}>" />
+								</td>
+							</tr>
+							<{/foreach}>
+						<{/if}>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="6">
+									<input type="hidden" name="curent_dir" value="<{$fcabix.config.current_folder.id}>" />
+									<button type="submit" class="ui-state-default ui-corner-all"><{$fcabix.langs.nojsgrid_downloadselected}></button>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+					</form>
+				</div>
+			</div>
+		</div>
+		<{/capture}>
+		<{$fcabix_nojsui}>
+		<noscript>
+		<{$fcabix_nojsui}>
+		</noscript>
+		
+	</div>
+</div>
+<{if $xoops_isadmin && $fcabix.config.dev_smartydebug}><{debug}><{/if}>

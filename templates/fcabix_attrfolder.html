@@ -1,0 +1,59 @@
+<div id="fcabix-attrfolder-contents-wrapper" class="fcabix-contents-wrapper">
+	<div>
+	
+		<div id="fcabix-nojsui" class="ui-widget">
+			<div class="ui-widget-header ui-corner-top">
+				<div class="fcabix-jsui-part" id="fcabix-nojsui-title"><{$fcabix.langs.main_title}> - <{$fcabix.langs.attrfolder_title}></div>
+			</div>
+			<div class="ui-widget-content ui-corner-bottom">
+				<div class="fcabix-nojsui-part" id="fcabix-nojsui-dialog">
+
+					<p><{$fcabix.langs.basic_settings_title}></p>
+					<form name="hidden_folder" action="attr_folder.php" method="post">
+						<input type="hidden" name="folder_id" value="<{$fcabix.config.folder_id}>" />
+						<input type='hidden' name='op' value='set_rights'></input>
+						<{foreach from=$fcabix.content.basic_settings.checkboxes item=checkbox}>
+						<label><{$checkbox.label}><input type="checkbox" name="<{$checkbox.name}>" value="1"<{if $checkbox.checked}> checked="checked"<{/if}> class="ui-state-default" /></label>
+						<{/foreach}>
+						<button type="submit" class="ui-state-default ui-corner-all"><{$fcabix.langs.basic_settings_submit}></button>
+					</form>
+
+					<p style="border-top: 1px solid #dcdcdc; padding-top: 1em; margin-top: 1em;"><{$fcabix.langs.groupperm_settings_title}></p>
+					<p style="font-weight: normal;"><{$fcabix.langs.groupperm_settings_notice}></p>
+					<form action="<{$fcabix.content.groupperm_settings.action}>" method="post">
+						<input type="hidden" name="folder_id" value="<{$fcabix.config.folder_id}>" />
+						<{foreach from=$fcabix.content.groupperm_settings.hiddens item=hidden}>
+						<input type="hidden" name="<{$hidden.name}>" value="<{$hidden.value}>" />
+						<{/foreach}>
+						<table>
+						<{foreach from=$fcabix.content.groupperm_settings.groups item=group}>
+							<tr>
+								<th nowrap="nowrap"><{if $group.id > 1}><{$group.name}><{/if}></th>
+								<td<{if $group.id > 1}> style="padding-bottom: 1ex;"<{/if}>>
+									<{foreach from=$group.rights item=right}>
+									<label>
+										<{if $group.id == 1}>
+										<input type="hidden" name="<{$right.checkbox.name}>" value="<{$right.checkbox.value}>" />
+										<{else}>
+										<input type="checkbox" name="<{$right.checkbox.name}>" value="<{$right.checkbox.value}>"<{if $right.checkbox.checked}> checked="checked"<{/if}><{if !$fcabix.config.show_groupperm}> disabled="disabled"<{/if}> class="ui-state-default<{if !$fcabix.config.show_groupperm}> ui-state-disabled<{/if}>" />
+										<{$right.checkbox.label}>
+										<{/if}>
+									</label>
+									<{foreach from=$right.hiddens item=hidden}>
+									<input type="hidden" name="<{$hidden.name}>" value="<{$hidden.value}>" />
+									<{/foreach}>
+									<{/foreach}>
+								</td>
+							</tr>
+						<{/foreach}>
+						</table>
+						<button type="submit"<{if !$fcabix.config.show_groupperm}> disabled="disabled"<{/if}> class="ui-state-default ui-corner-all<{if !$fcabix.config.show_groupperm}> ui-state-disabled<{/if}>"><{$fcabix.langs.groupperm_settings_submit}></button>
+						<button type="reset"<{if !$fcabix.config.show_groupperm}> disabled="disabled"<{/if}> class="ui-state-default ui-corner-all<{if !$fcabix.config.show_groupperm}> ui-state-disabled<{/if}>"><{$fcabix.langs.groupperm_settings_reset}></button>
+					</form>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+</div>
+<{if $xoops_isadmin && $fcabix.config.dev_smartydebug}><{debug}><{/if}>

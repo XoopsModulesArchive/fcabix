@@ -1,0 +1,23 @@
+<div id="fcabix-erasefile-contents-wrapper" class="fcabix-contents-wrapper">
+	<div>
+
+		<div id="fcabix-nojsui" class="ui-widget">
+			<div class="ui-widget-header ui-corner-top">
+				<div class="fcabix-jsui-part" id="fcabix-nojsui-title"><{$fcabix.langs.main_title}> - <{$fcabix.langs.erasefile_title}></div>
+			</div>
+			<div class="ui-widget-content ui-corner-bottom">
+				<div class="fcabix-nojsui-part" id="fcabix-nojsui-dialog">
+					<form method="post" action="insert_info.php" enctype="multipart/form-data">
+						<p><{$fcabix.langs.erasefile_confirm}></p>
+						<input type="hidden" name="file_id" value="<{$fcabix.content.file_id}>" />
+						<input type="hidden" name="folder_id" value="<{$fcabix.content.folder_id}>" />
+						<input type="hidden" name="op" value="erase_file" />
+						<button type="submit" class="ui-state-default ui-priority-primary ui-corner-all"><{$fcabix.langs.erasefile_erase}></button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<{if $xoops_isadmin && $fcabix.config.dev_smartydebug}><{debug}><{/if}>

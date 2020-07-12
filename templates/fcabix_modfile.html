@@ -1,0 +1,24 @@
+<div id="fcabix-modfile-contents-wrapper" class="fcabix-contents-wrapper">
+	<div>
+
+		<div id="fcabix-nojsui" class="ui-widget">
+			<div class="ui-widget-header ui-corner-top">
+				<div class="fcabix-jsui-part" id="fcabix-nojsui-title"><{$fcabix.langs.main_title}> - <{$fcabix.langs.modfile_title}></div>
+			</div>
+			<div class="ui-widget-content ui-corner-bottom">
+				<div class="fcabix-nojsui-part" id="fcabix-nojsui-dialog">
+					<form method="post" action="insert_info.php" enctype="multipart/form-data">
+						<p><{$fcabix.langs.modfile_input}></p>
+						<input type="hidden" name="folder_id" value="<{$fcabix.content.folder_id}>" />
+						<input type="hidden" name="file_id" value="<{$fcabix.content.file_id}>" />
+						<input type="hidden" name="op" value="mod_file" />
+						<input type="text" name="new_file_name" value="<{$fcabix.content.file_name}>" class="ui-state-default ui-priority-primary ui-corner-all" />
+						<button type="submit" class="ui-state-default ui-priority-secondary ui-corner-all"><{$fcabix.langs.modfile_rename}></button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<{if $xoops_isadmin && $fcabix.config.dev_smartydebug}><{debug}><{/if}>
